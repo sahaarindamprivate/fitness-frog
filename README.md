@@ -95,6 +95,38 @@ What does unobtrusive mean in this context?  The approach of separating JavaScri
 
 ### Improving Validation CSS Styles
 
+We need to customize Jquery validation library to use the available bootstrap validation styles.
+
+Add new JS file in the scripts folder and reference it in the view.
+
+Here's the JavaScript snippet for jquery.validate.bootstrap.js
+
+``` 
+(function ($) {
+    var defaultOptions = {
+        validClass: 'has-success',
+        errorClass: 'has-error',
+        highlight: function (element, errorClass, validClass) {
+            $(element).closest('.form-group')
+                .removeClass(validClass)
+                .addClass(errorClass);
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).closest('.form-group')
+                .removeClass(errorClass)
+                .addClass(validClass);
+        }
+    };
+
+    $.validator.setDefaults(defaultOptions);
+
+    $.validator.unobtrusive.options = {
+        errorClass: defaultOptions.errorClass,
+        validClass: defaultOptions.validClass,
+    };
+})(jQuery);
+```
+
 ### Updating the Controller to Handle Updates
 
 ### Creating a Partial View for the Form
