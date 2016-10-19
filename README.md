@@ -14,7 +14,7 @@ Of course, I am using Github as my central repository. It tracks and manages cha
 
 2. Add the necessary CSS and Javascript files to the project. Use the minified css and js. Css is added to the Content folder and javascript is added to the Scripts folder.
 
-3. Update the layout page with references to the CSS and JS files. Order of files is important, but site.css is a bundled file that includes bootstrap and bootstrap-datepicker styles so you don't need to add those explicitly in _Layout.cshtml.
+3. Update the layout page with references to the CSS and JS files. Order of files is important, but site.css provided by Treehouse is a bundled file that includes bootstrap and bootstrap-datepicker styles so you don't need to add those explicitly in _Layout.cshtml. In a regular project, you would add the links in the <head> or bundle them yourself.
 
 4. Add a Script block to initialize the datepicker in _Layout.cshtml after you add the script tag for bootstrp-datepicker.js
 
