@@ -59,15 +59,12 @@ public string Notes { get; set; }
 
 ### Displaying Validation Messages
 
-```
-@Html.ValidationSummary()
-```
-or
+Add a validation summary with some css styling.
 ```
 @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 ```
-There are also other overloads for the ValidationSummary method.
 
+Add validation messages to display for individual fields.
 ```
 @Html.ValidationMessageFor(m => m.ActivityId)
 ```
@@ -77,5 +74,37 @@ to the AddModelError method.
 ```
 ModelState.AddModelError("", "This is a global message.");
 ```
+
+### Implementing Unobtrusive Client-side Validation
+
+Install jQuery.Validation and Microsoft.jQuery.Unobtrusive.Validation
+
+You need to explicitly enable MVC support for client side validation by setting two settings in the Web.config file.
+
+```
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true"/>
+    <add key="ClientValidationEnabled" value="true"/>
+  </appSettings>
+```
+Validation Summary section must be rendered inside of the form.
+
+What does unobtrusive mean in this context?  The approach of separating JavaScript code from the page's HTML and following progressive enhancement principles. The page will work even if JavaScript is not enabled.
+
+### Improving Validation CSS Styles
+
+### Updating the Controller to Handle Updates
+
+### Creating a Partial View for the Form
+
+### Partial Views
+
+### Updating the Controller to Handle Deletes
+
+### Updating the Delete View
+
+### Using TempData
 
 
