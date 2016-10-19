@@ -33,3 +33,8 @@ Of course, I am using Github as my central repository. It tracks and manages cha
 @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" })
 ```
 
+### Implementing Server-Side Validation
+
+There are two approaches for implementing server side validation rules. Adding errors directly to ModelState and expressing rules using data annotations on models.
+
+#### Using ModelState to Implement Server Side Validation
