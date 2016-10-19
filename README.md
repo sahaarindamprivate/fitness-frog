@@ -10,15 +10,15 @@ Of course, I am using Github as my central repository. It tracks and manages cha
 
 [Bootstrap Datepicker Project](https://bootstrap-datepicker.readthedocs.io/en/latest/)
 
-1. Download the zip files. Use the minified css and js.
+1. Download the zip files. Click the Online Demo link to go to the demo page that has the download button.  
 
-2. Add the necessary CSS and Javascript files to the project.
+2. Add the necessary CSS and Javascript files to the project. Use the minified css and js. Css is added to the Content folder and javascript is added to the Scripts folder.
 
 3. Update the layout page with references to the CSS and JS files. Order of files is important, but site.css is a bundled file that includes bootstrap and bootstrap-datepicker styles so you don't need to add those explicitly in _Layout.cshtml.
 
 4. Add a Script block to initialize the datepicker in _Layout.cshtml after you add the script tag for bootstrp-datepicker.js
 
-``` html
+```
 <script src="~/Scripts/bootstrap-datepicker.min.js"></script>
 <script>
 	$('input.datepicker').datepicker({
@@ -32,3 +32,4 @@ Of course, I am using Github as my central repository. It tracks and manages cha
 ```
 @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" })
 ```
+
