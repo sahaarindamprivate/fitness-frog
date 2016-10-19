@@ -129,11 +129,20 @@ Here's the JavaScript snippet for jquery.validate.bootstrap.js
 
 ### Updating the Controller to Handle Updates
 
+
+
 ### Creating a Partial View for the Form
 
-### Partial Views
+The naming convention for partial views is to prefix the view name with an underscore.
+
+```
+@Html.Partial("_EntryForm")
+```
+Remember to pass only "_EntryForm", not "_EntryForm.cshtml".
 
 ### Updating the Controller to Handle Deletes
+
+
 
 ### Updating the Delete View
 
