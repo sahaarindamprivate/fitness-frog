@@ -4,26 +4,13 @@
 @{
     ViewBag.Title = "Add Entry";
 
-
-
-    //var selectListItems = new[]
-    //{
-    //    new SelectListItem() { Value = "1", Text = "Item 1", Selected = false },
-    //    new SelectListItem() { Value = "2", Text = "Item 2", Selected = true }
-    //};
-
-    //var items = new[]
-    //{
-    //    new { Id = 1, Name = "Item 1" },
-    //    new { Id = 2, Name = "Item 2" }
-    //};
-    //var selectListItems = new SelectList(items, "Id", "Name");
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm())
+@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
 
+@using (Html.BeginForm())
 
 {
     <div class="row">

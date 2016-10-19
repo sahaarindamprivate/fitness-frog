@@ -37,4 +37,45 @@ Of course, I am using Github as my central repository. It tracks and manages cha
 
 There are two approaches for implementing server side validation rules. Adding errors directly to ModelState and expressing rules using data annotations on models.
 
-#### Using ModelState to Implement Server Side Validation
+#### 1. Using ModelState to Implement Server Side Validation
+
+```
+if (ModelState.IsValidField("Duration") && entry.Duration <= 0)
+{
+	ModelState.AddModelError("Duration", 
+		"The Duration field value must be greater than '0'");
+}
+```
+
+#### 2. Using Data Annotations on Models
+
+Strings are nullable, so add [Required] if the field is required. Value types like int and DateTime are not nullable, so if you want to allow nulls, you need to make them nullable like this: int? or DateTime?
+
+```
+[Required]
+[MaxLength(200, ErrorMessage = "The Notes field cannot be longer than 200 characters.")]
+public string Notes { get; set; }
+```
+
+### Displaying Validation Messages
+
+```
+@Html.ValidationSummary()
+```
+or
+```
+@Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+```
+There are also other overloads for the ValidationSummary method.
+
+```
+@Html.ValidationMessageFor(m => m.ActivityId)
+```
+To add a global error message to the ModelState, pass an empty string
+to the AddModelError method.
+
+```
+ModelState.AddModelError("", "This is a global message.");
+```
+
+
