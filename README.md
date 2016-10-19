@@ -154,6 +154,8 @@ Remember to pass only "_EntryForm", not "_EntryForm.cshtml".
 
 ### Updating the Controller to Handle Deletes
 
+The GET request action simply gets the record to delete so the user can review the information and confirm the delete. The POST request action will delete the entry.
+
 ### Updating the Delete View
 
 Make views strongly typed by using the model directive.
@@ -183,3 +185,11 @@ and in the view add
     <div>@TempData["Message"]</div>
 }
 ```
+
+### Deployment to AWS Elastic Beanstalk
+
+Deployment is easy-peasy. Just make sure that the security group for the EC2 instance allows the HTTP port. 
+
+Under Network & Security, go to the Security Groups section. Select your instance's security group and add an Inbound Custom TCP rule for Port range 80.
+
+See [this post](http://serverfault.com/questions/356598/why-cant-i-reach-my-amazon-ec2-instance-via-its-elastic-ip-address) for more details.
