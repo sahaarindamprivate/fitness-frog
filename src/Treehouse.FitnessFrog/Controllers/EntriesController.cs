@@ -118,15 +118,12 @@ namespace Treehouse.FitnessFrog.Controllers
                 return HttpNotFound();
             }
 
-            return View();
+            return View(entry);
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            // todo delete the entry
-            // todo redirect to list page
-
             _entriesRepository.DeleteEntry(id);
 
             return RedirectToAction("Index");

@@ -129,7 +129,19 @@ Here's the JavaScript snippet for jquery.validate.bootstrap.js
 
 ### Updating the Controller to Handle Updates
 
+Nullabe values need to be cast into their non-nullable counterparts. For example:
 
+```
+public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Entry entry = _entriesRepository.GetEntry((int)id);
+```
+The id parameter is type int?, so when you pass it to the GetEntry method cast it to int.
 
 ### Creating a Partial View for the Form
 
@@ -142,9 +154,18 @@ Remember to pass only "_EntryForm", not "_EntryForm.cshtml".
 
 ### Updating the Controller to Handle Deletes
 
-
-
 ### Updating the Delete View
+
+Make views strongly typed by using the model directive.
+
+Remember to use 
+
+```
+@Model.Date.ToShortDateString()
+```
+to format the date without time.
+
+
 
 ### Using TempData
 
