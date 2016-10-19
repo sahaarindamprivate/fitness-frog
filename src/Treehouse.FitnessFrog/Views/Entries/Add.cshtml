@@ -2,26 +2,43 @@
 
 @{
     ViewBag.Title = "Add Entry";
+
+
+
+    //var selectListItems = new[]
+    //{
+    //    new SelectListItem() { Value = "1", Text = "Item 1", Selected = false },
+    //    new SelectListItem() { Value = "2", Text = "Item 2", Selected = true }
+    //};
+
+    //var items = new[]
+    //{
+    //    new { Id = 1, Name = "Item 1" },
+    //    new { Id = 2, Name = "Item 2" }
+    //};
+    //var selectListItems = new SelectList(items, "Id", "Name");
 }
 
 <h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm())
+
+
 {
     <div class="row">
 
         <div class="col-md-6">
 
             @*Standard Date and Time Format Strings
-            https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx*@
+                https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx*@
 
-            @*Since this is learning code, I've included a formatting example just for my 
-            future self benefit.
-            @{
-                var formattedDate = String.Format("{0:d}", Model.Date);
-            }
+            @*Since this is learning code, I've included a formatting example just for my
+                future self benefit.
+                @{
+                    var formattedDate = String.Format("{0:d}", Model.Date);
+                }
 
-            <p>@formattedDate</p>*@
+                <p>@formattedDate</p>*@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Date, new { @class = "control-label" })
@@ -30,7 +47,8 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.ActivityId, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.ActivityId,
+                                (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
             </div>
 
             <div class="form-group">
@@ -71,4 +89,4 @@
         </div>
 
     </div>
-                }
+}
