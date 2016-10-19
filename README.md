@@ -165,8 +165,21 @@ Remember to use
 ```
 to format the date without time.
 
-
-
 ### Using TempData
 
+There's no visual indication that delete or update have been successful when redirected back to the index page.
 
+TempData survives to the next request.
+
+In the controller, right before the redirect add:
+
+```
+TempData["Message"] = "Your entry was successfully added!";
+```
+and in the view add
+```
+@if (TempData["Message"] != null)
+{
+    <div>@TempData["Message"]</div>
+}
+```
