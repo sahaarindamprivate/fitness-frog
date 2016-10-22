@@ -52,6 +52,7 @@ namespace Treehouse.FitnessFrog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(Entry entry)
         {
             ValidateEntry(entry);
@@ -90,6 +91,7 @@ namespace Treehouse.FitnessFrog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(Entry entry)
         {
             ValidateEntry(entry);
@@ -126,6 +128,7 @@ namespace Treehouse.FitnessFrog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             _entriesRepository.DeleteEntry(id);

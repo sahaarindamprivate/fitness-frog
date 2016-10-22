@@ -193,3 +193,8 @@ Deployment is easy-peasy. Just make sure that the security group for the EC2 ins
 Under Network & Security, go to the Security Groups section. Select your instance's security group and add an Inbound Custom TCP rule for Port range 80.
 
 See [this post](http://serverfault.com/questions/356598/why-cant-i-reach-my-amazon-ec2-instance-via-its-elastic-ip-address) for more details.
+
+### Adding CSRF Protection
+
+1. After Html.BeginForm(), put @Html.AntiForgeryToken().
+2. Add the attribute [ValidateAntiForgeryToken] to every post action method.
