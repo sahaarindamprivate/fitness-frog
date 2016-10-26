@@ -198,3 +198,16 @@ See [this post](http://serverfault.com/questions/356598/why-cant-i-reach-my-amaz
 
 1. After Html.BeginForm(), put @Html.AntiForgeryToken().
 2. Add the attribute [ValidateAntiForgeryToken] to every post action method.
+
+### Notes for Validation Summary and Validation Styling
+
+```
+.form-group {
+    position: relative;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+```
+
